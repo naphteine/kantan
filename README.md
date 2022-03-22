@@ -1,2 +1,3 @@
-# kantan
-Kantan! Simple To-do App
+# Kantan! To-do App
+
+Simple To-do app. Made with Vue and Bootstrap.
