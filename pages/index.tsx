@@ -53,7 +53,7 @@ export default function Home() {
         <ul>
           {data.map((e) => {
             return (
-              <li>
+              <li key={e.id}>
                 {e.text} <button onClick={() => handleDelete(e.id)}>X</button>
               </li>
             );
