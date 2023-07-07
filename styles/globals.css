@@ -1,0 +1,10 @@
+:root {
+  --cl-bg: #1f1f1f;
+  --cl-bg2: #494949;
+  --cl-bg2light: #a7a7a7;
+  --cl-fg: #ffffff;
+}
+
+body {
+  background-color: var(--cl-bg);
+}
