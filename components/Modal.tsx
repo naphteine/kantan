@@ -1,4 +1,4 @@
-import React, { ReactNode, MouseEvent } from "react";
+import React, { ReactNode, MouseEvent, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Modal.module.css";
 
@@ -9,13 +9,39 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ onClose, children, title }) => {
-  const handleCloseClick = (e: MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    onClose();
-  };
+  const handleCloseClick = useCallback(
+    (e: MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      onClose();
+    },
+    [onClose]
+  );
+
+  const handleBackdropClick = useCallback(
+    (e: MouseEvent<HTMLDivElement>) => {
+      if (e.target === e.currentTarget) {
+        onClose();
+      }
+    },
+    [onClose]
+  );
+
+  useEffect(() => {
+    const handleEscapeKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscapeKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscapeKey);
+    };
+  }, [onClose]);
 
   const modalContent = (
-    <div className={styles.modal_overlay}>
+    <div className={styles.modal_overlay} onClick={handleBackdropClick}>
       <div className={styles.modal_wrapper}>
         <div className={styles.modal}>
           <div className={styles.modal_header}>
