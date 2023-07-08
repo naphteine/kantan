@@ -61,6 +61,8 @@ export default function Home() {
             </label>
           </li>
         </ul>
+
+        <span className={styles.new}></span>
         {/* <h2>New To-do</h2>
         <input
           type="text"
