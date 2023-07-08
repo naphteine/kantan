@@ -45,11 +45,11 @@ const Modal: React.FC<ModalProps> = ({ onClose, children, title }) => {
       <div className={styles.modal_wrapper}>
         <div className={styles.modal}>
           <div className={styles.modal_header}>
+            {title && <h1>{title}</h1>}
             <a href="#" onClick={handleCloseClick}>
               x
             </a>
           </div>
-          {title && <h1>{title}</h1>}
           <div className={styles.modal_body}>{children}</div>
         </div>
       </div>
