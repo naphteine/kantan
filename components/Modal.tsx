@@ -1,5 +1,6 @@
 import React, { ReactNode, MouseEvent } from "react";
 import ReactDOM from "react-dom";
+import styles from "../styles/Modal.module.css";
 
 interface ModalProps {
   onClose: () => void;
@@ -14,16 +15,16 @@ const Modal: React.FC<ModalProps> = ({ onClose, children, title }) => {
   };
 
   const modalContent = (
-    <div className="modal-overlay">
-      <div className="modal-wrapper">
-        <div className="modal">
-          <div className="modal-header">
+    <div className={styles.modal_overlay}>
+      <div className={styles.modal_wrapper}>
+        <div className={styles.modal}>
+          <div className={styles.modal_header}>
             <a href="#" onClick={handleCloseClick}>
               x
             </a>
           </div>
           {title && <h1>{title}</h1>}
-          <div className="modal-body">{children}</div>
+          <div className={styles.modal_body}>{children}</div>
         </div>
       </div>
     </div>
