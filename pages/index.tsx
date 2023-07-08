@@ -47,52 +47,35 @@ export default function Home() {
           </div>
         </div>
 
-        <ul className={styles.list}>
-          <li className={styles.item}>
-            <label className={styles.container}>
-              Keman çal
-              <input type="checkbox" />
-              <span className={styles.checkmark}></span>
-            </label>
-          </li>
-          <li className={styles.item}>
-            <label className={styles.container}>
-              Kantan kodla
-              <input type="checkbox" />
-              <span className={styles.checkmark}></span>
-            </label>
-          </li>
-        </ul>
-
         <span onClick={() => setShowModal(true)} className={styles.new}></span>
 
-        {showModal && (
-          <Modal title="sex" onClose={() => setShowModal(false)}>
-            Hello
-          </Modal>
-        )}
-        {/* <h2>New To-do</h2>
-        <input
-          type="text"
-          value={inputData}
-          onChange={(e) => {
-            setInputData(e.currentTarget.value);
-          }}
-        ></input>
-        <button onClick={handleClick}>Add new to-do</button>
-
-        <hr />
-
-        <h2>To-do List</h2>
-        <ul>
+        <ul className={styles.list}>
           {data.map((e) => {
             return (
-              <li key={e.id}>
-                {e.text} <button onClick={() => handleDelete(e.id)}>X</button>
+              <li key={e.id} className={styles.item}>
+                <label className={styles.container}>
+                  {e.text}
+                  <input type="checkbox" />
+                  <span className={styles.checkmark}></span>
+                </label>
+                <button onClick={() => handleDelete(e.id)}>X</button>
               </li>
             );
           })}
-        </ul> */}
+        </ul>
+
+        {showModal && (
+          <Modal title="Add new task" onClose={() => setShowModal(false)}>
+            <input
+              type="text"
+              value={inputData}
+              onChange={(e) => {
+                setInputData(e.currentTarget.value);
+              }}
+            ></input>
+            <button onClick={handleClick}>Done</button>
+          </Modal>
+        )}
       </main>
     </>
   );
