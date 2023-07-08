@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
+import Modal from "../components/Modal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +19,7 @@ const initialList = [
 export default function Home() {
   const [data, setData] = useState(initialList);
   const [inputData, setInputData] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   function handleClick() {
     setData([...data, { id: Math.random(), text: inputData, done: false }]);
@@ -62,7 +64,13 @@ export default function Home() {
           </li>
         </ul>
 
-        <span className={styles.new}></span>
+        <span onClick={() => setShowModal(true)} className={styles.new}></span>
+
+        {showModal && (
+          <Modal title="sex" onClose={() => setShowModal(false)}>
+            Hello
+          </Modal>
+        )}
         {/* <h2>New To-do</h2>
         <input
           type="text"
