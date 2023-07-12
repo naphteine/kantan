@@ -4,6 +4,7 @@ import { Inter } from "@next/font/google";
 import styles from "../styles/Home.module.css";
 import { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
+import { CiCircleRemove } from "react-icons/ci";
 import Modal from "../components/Modal";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -58,7 +59,12 @@ export default function Home() {
                   <input type="checkbox" />
                   <span className={styles.checkmark}></span>
                 </label>
-                <button onClick={() => handleDelete(e.id)}>X</button>
+                <div
+                  className={styles.remove}
+                  onClick={() => handleDelete(e.id)}
+                >
+                  <CiCircleRemove size={32} />
+                </div>
               </li>
             );
           })}

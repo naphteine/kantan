@@ -59,6 +59,8 @@
   max-width: 700px;
   border-radius: 20px;
   padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .item:hover {
@@ -171,4 +173,8 @@
 .new:after {
   margin: auto 2px;
   height: 2px;
+}
+
+.remove {
+  cursor: pointer;
 }
