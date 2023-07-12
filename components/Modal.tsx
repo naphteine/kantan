@@ -1,6 +1,7 @@
 import React, { ReactNode, MouseEvent, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Modal.module.css";
+import { CiCircleRemove } from "react-icons/ci";
 
 interface ModalProps {
   onClose: () => void;
@@ -47,7 +48,7 @@ const Modal: React.FC<ModalProps> = ({ onClose, children, title }) => {
           <div className={styles.modal_header}>
             {title && <h1>{title}</h1>}
             <a href="#" onClick={handleCloseClick}>
-              x
+              <CiCircleRemove className={styles.remove} size={32} />
             </a>
           </div>
           <div className={styles.modal_body}>{children}</div>

@@ -27,13 +27,18 @@
 }
 
 .modal_body {
-  padding-top: 10px;
+  padding-top: 30px;
 }
 
 .modal_header {
   display: flex;
   justify-content: space-between;
   font-size: 1rem;
+}
+
+.modal_header h1 {
+  margin: 0;
+  padding: 0;
 }
 
 .modal input {
@@ -50,9 +55,28 @@
 }
 
 .modal button {
+  background-color: var(--cl-bg2);
+  border-radius: 90px;
+  border: none;
+  padding: 1rem 0.5rem;
+  margin: 1rem 20%;
+  font-size: 1rem;
+  font-weight: 600;
+  color: orange;
+  cursor: pointer;
+  width: 60%;
+}
+
+.modal button:hover {
+  background-color: orange;
+  color: var(--cl-bg2);
 }
 
 .modal input:focus-visible {
   outline: none;
   background-color: var(--cl-bg2light);
+}
+
+.remove {
+  color: orange;
 }
