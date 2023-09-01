@@ -1,3 +1,14 @@
+export default function Modal() {
+  return (
+    <>
+      <h1>I am a Modal!</h1>
+    </>
+  );
+}
+
+/*
+"use client";
+
 import React, { ReactNode, MouseEvent, useEffect, useCallback } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Modal.module.css";
@@ -64,3 +75,4 @@ const Modal: React.FC<ModalProps> = ({ onClose, children, title }) => {
 };
 
 export default Modal;
+*/
