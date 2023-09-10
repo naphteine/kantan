@@ -1,17 +1,21 @@
+import { cookies } from "next/headers";
 import Header from "../components/Header";
-import { getItems } from "../lib/getItems";
-import pb from "../lib/pocketbase";
 
 export default async function Home() {
-  const result = await getItems();
+  const cookie = cookies().get("pb_auth");
+
+  let username = "";
+
+  if (cookie) {
+    const { model } = JSON.parse(cookie.value);
+    username = model.username;
+  }
+
   return (
     <>
       <Header />
-      Username: {pb.authStore.model?.email}
+      Username: {username}
       <h1>Home Page</h1>
-      {result.items.map((task) => {
-        return <li key={task.created}>{task.task}</li>;
-      })}
     </>
   );
 }

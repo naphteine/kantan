@@ -1,7 +1,9 @@
+import { cookies } from "next/headers";
 import Link from "next/link";
-import pb from "../lib/pocketbase";
 
 export default function Header() {
+  const cookie = cookies().get("pb_auth");
+
   return (
     <header>
       <h1>Welcome to Kantan!</h1>
@@ -9,18 +11,20 @@ export default function Header() {
         <li>
           <Link href="/">Home page</Link>
         </li>
-        {pb.authStore.isValid ? (
-          <li>
-            <Link href="/logout">Logout</Link>
-          </li>
+        {cookie ? (
+          <>
+            <li>
+              <Link href="/app/dashboard">Dashboard</Link>
+            </li>
+            <li>
+              <Link href="/app/new">Add new</Link>
+            </li>
+          </>
         ) : (
           <li>
             <Link href="/login">Login</Link>
           </li>
         )}
-        <li>
-          <Link href="/new">Add new</Link>
-        </li>
       </ul>
     </header>
   );

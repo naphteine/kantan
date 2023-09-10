@@ -1,53 +1,22 @@
-"use client";
+// ./app/page.tsx
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import Header from "../../components/Header";
+import { login } from "../actions";
 
-export default function Login() {
-  const router = useRouter();
-
-  const [inputEmail, setInputEmail] = useState("");
-  const [inputPassword, setInputPassword] = useState("");
-
-  function emailChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setInputEmail(e.target.value);
-  }
-
-  function passwdChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setInputPassword(e.target.value);
-  }
-
-  async function submit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = await fetch(`/api/login`, {
-      method: "PUT",
-      body: JSON.stringify({ email: inputEmail, password: inputPassword }),
-    });
-    console.log(data);
-  }
-
+export default function Page() {
   return (
-    <>
-      <Header />
-      <h1>Login Page</h1>
-      <form onSubmit={submit}>
-        <input
-          onChange={emailChange}
-          type="email"
-          id="email"
-          name="email"
-          placeholder="E-Mail"
-        />
-        <input
-          onChange={passwdChange}
-          type="password"
-          id="passwd"
-          name="passwd"
-          placeholder="Şifre"
-        />
-        <button type="submit">submit</button>
+    <main>
+      Login form
+      <form action={login}>
+        <label>
+          E-mail
+          <input name="email" type="email" />
+        </label>
+        <label>
+          Password
+          <input name="password" type="password" />
+        </label>
+        <button type="submit">Login</button>
       </form>
-    </>
+    </main>
   );
 }
