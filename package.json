@@ -9,12 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@types/node": "22.5.5",
-    "@types/react": "18.3.7",
+    "@types/node": "22.7.4",
+    "@types/react": "18.3.10",
     "@types/react-dom": "18.3.0",
-    "eslint": "9.10.0",
-    "eslint-config-next": "14.2.12",
-    "next": "^14.2.12",
+    "eslint": "9.11.1",
+    "eslint-config-next": "14.2.13",
+    "next": "^14.2.13",
     "pocketbase": "^0.21.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
